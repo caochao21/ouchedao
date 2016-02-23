@@ -1,0 +1,284 @@
+	</div>
+<!--{if empty($topic) || ($topic[usefooter])}-->
+	<!--{eval $focusid = getfocus_rand($_G[basescript]);}-->
+	<!--{if $focusid !== null}-->
+		<!--{eval $focus = $_G['cache']['focus']['data'][$focusid];}-->
+		<!--{eval $focusnum = count($_G['setting']['focus'][$_G[basescript]]);}-->
+		<div class="focus" id="sitefocus">
+			<div class="bm">
+				<div class="bm_h cl">
+					<a href="javascript:;" onclick="setcookie('nofocus_$_G[basescript]', 1, $_G['cache']['focus']['cookie']*3600);$('sitefocus').style.display='none'" class="y" title="{lang close}">{lang close}</a>
+					<h2>
+						<!--{if $_G['cache']['focus']['title']}-->{$_G['cache']['focus']['title']}<!--{else}-->{lang focus_hottopics}<!--{/if}-->
+						<span id="focus_ctrl" class="fctrl"><img src="{IMGDIR}/pic_nv_prev.gif" alt="{lang footer_previous}" title="{lang footer_previous}" id="focusprev" class="cur1" onclick="showfocus('prev');" /> <em><span id="focuscur"></span>/$focusnum</em> <img src="{IMGDIR}/pic_nv_next.gif" alt="{lang footer_next}" title="{lang footer_next}" id="focusnext" class="cur1" onclick="showfocus('next')" /></span>
+					</h2>
+				</div>
+				<div class="bm_c" id="focus_con">
+				</div>
+			</div>
+		</div>
+		<!--{eval $focusi = 0;}-->
+		<!--{loop $_G['setting']['focus'][$_G[basescript]] $id}-->
+				<div class="bm_c" style="display: none" id="focus_$focusi">
+					<dl class="xld cl bbda">
+						<dt><a href="{$_G['cache']['focus']['data'][$id]['url']}" class="xi2" target="_blank">$_G['cache']['focus']['data'][$id]['subject']</a></dt>
+						<!--{if $_G['cache']['focus']['data'][$id][image]}-->
+						<dd class="m"><a href="{$_G['cache']['focus']['data'][$id]['url']}" target="_blank"><img src="{$_G['cache']['focus']['data'][$id]['image']}" alt="$_G['cache']['focus']['data'][$id]['subject']" /></a></dd>
+						<!--{/if}-->
+						<dd>$_G['cache']['focus']['data'][$id]['summary']</dd>
+					</dl>
+					<p class="ptn cl"><a href="{$_G['cache']['focus']['data'][$id]['url']}" class="xi2 y" target="_blank">{lang focus_show} &raquo;</a></p>
+				</div>
+		<!--{eval $focusi ++;}-->
+		<!--{/loop}-->
+		<script type="text/javascript">
+			var focusnum = $focusnum;
+			if(focusnum < 2) {
+				$('focus_ctrl').style.display = 'none';
+			}
+			if(!$('focuscur').innerHTML) {
+				var randomnum = parseInt(Math.round(Math.random() * focusnum));
+				$('focuscur').innerHTML = Math.max(1, randomnum);
+			}
+			showfocus();
+			var focusautoshow = window.setInterval('showfocus(\'next\', 1);', 5000);
+		</script>
+	<!--{/if}-->
+	<!--{if $_G['uid'] && $_G['member']['allowadmincp'] == 1 && $_G['setting']['showpatchnotice'] == 1}-->
+		<div class="focus patch" id="patch_notice"></div>
+	<!--{/if}-->
+
+	<!--{ad/footerbanner/wp a_f/1}--><!--{ad/footerbanner/wp a_f/2}--><!--{ad/footerbanner/wp a_f/3}-->
+	<!--{ad/float/a_fl/1}--><!--{ad/float/a_fr/2}-->
+	<!--{ad/couplebanner/a_fl a_cb/1}--><!--{ad/couplebanner/a_fr a_cb/2}-->
+	<!--{ad/cornerbanner/a_cn}-->
+
+	<!--{hook/global_footer}-->
+    <div class="deanfooter">
+    	<div class="w1180">
+        	<div class="deanftleftpart">
+            	<div class="deanftlogo"><img src="$_G['style'][styleimgdir]/ftlogo.png" /></div>
+                <div class="deanftwz"><img src="$_G['style'][styleimgdir]/ftwz.png" /></div>
+                <div class="deansearch"><!--{subtemplate common/pubsearchform}--></div>
+                <div class="clear"></div>
+                <div class="deanguanzhu">
+                	<a class="deanqq" href="#" target="_blank"></a>
+                    <a class="deanweibo" href="#" target="_blank"></a>
+                    <a class="deanwangwang" href="#" target="_blank"></a>
+                    <a class="deanemail" href="#" target="_blank"></a>
+                    <a class="deanerweima" href="#" target="_blank"><img src="$_G['style'][styleimgdir]/weixinma.png" /></a>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="deanftcontacts">
+            	<h5>联系我们</h5>
+                <p>企业电话：4000-88-2020</p>
+                <p>服务QQ：3276498637</p>
+                <p>服务时间：9:30-23:30</p>
+                <p>协会地址：</p>
+                <p>商务合作 Business Contact</p>
+                <p><a href="#" target="_blank">3276498637@qq.com</a></p>
+            </div>
+            <div class="deanftrightpart">
+            	<ul>
+                	<li>
+                    	<h5>欧洲车导协会户外旅游</h5>
+                        <p><a href="#" target="_blank">赞</a></p>
+                        <p><a href="#" target="_blank">免费体验</a></p>
+                        <p><a href="#" target="_blank">预订流程</a></p>
+                        <p><a href="#" target="_blank">出发提醒</a></p>
+                        <p><a href="#" target="_blank">保险计划</a></p>
+                        <p><a href="#" target="_blank">签证</a></p>
+                    </li>
+                    <li>
+                    	<h5>发现我们</h5>
+                        <p><a href="#" target="_blank">天猫商城</a></p>
+                        <p><a href="#" target="_blank">我的淘宝</a></p>
+                        <p><a href="#" target="_blank">大众点评</a></p>
+                        <p><a href="#" target="_blank">出发提醒</a></p>
+                        <p><a href="#" target="_blank">优酷视频</a></p>
+                        <p><a href="#" target="_blank">去哪儿</a></p>
+                    </li>
+                    <li>
+                    	<h5>关于我们</h5>
+                        <p><a href="#" target="_blank">关于我们</a></p>
+                        <p><a href="#" target="_blank">加入我们</a></p>
+                        <p><a href="#" target="_blank">联系我们</a></p>
+                        <p><a href="#" target="_blank">免责声明</a></p>
+                        <p><a href="#" target="_blank">旅游经营许可证</a></p>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+            
+            </div>
+            <div class="clear"></div>
+            <div class="deanyl" style="border-top:1px solid #f3f3f3; padding-top:20px;margin-top: 20px;">
+                	<span>合作伙伴：</span>
+                	<ul>
+                    	<li>
+                        	<a href="#" target="_blank">网易科技</a>
+                            <a href="#" target="_blank">TechWeb</a>
+                            <a href="#" target="_blank">凤凰科技</a>
+                            <a href="#" target="_blank">环球旅讯</a>
+                            <a href="#" target="_blank">劲旅网</a>
+                            <a href="#" target="_blank">赛迪网</a>
+                            <a href="#" target="_blank">旅业网</a>
+                            <a href="#" target="_blank">速途网</a>
+                            <a href="https://github.com/" target="_blank">GitHub</a>
+                            <a href="https://www.codeguard.com/" target="_blank">CodeGuard</a>
+                            <div class="clear"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="deanyl">
+                	<span>友情链接：</span>
+                	<ul>
+                    	<li>
+                        	<a href="http://www.xianlvke.com/" target="_blank">鲜旅客</a>
+                            <a href="http://www.yiqihi.com/" target="_blank">一起嗨</a>
+                            <a href="http://www.wanzi.cc/" target="_blank">丸子地球</a>
+                            <a href="http://www.zouke.com/" target="_blank">欧洲走客</a>
+                            <a href="http://www.qyer.com/" target="_blank">穷游网</a>
+                            <a href="http://www.mafengwo.cn/" target="_blank">蚂蜂窝</a>
+                            <a href="http://www.tuniu.com/" target="_blank">途牛</a>
+                            <a href="http://www.haiwan.com/" target="_blank">海玩</a>
+                            <a href="http://www.woqu.com/" target="_blank">我趣</a>
+                            <a href="http://www.6renyou.com/" target="_blank">6人游</a>
+                            <a href="http://www.8stour.com/" target="_blank">八星旅游</a>
+                            <a href="http://zh.caissa.de/" target="_blank">凯撒旅游</a>
+                            <div class="clear"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            <div class="deanwebinfo">
+            	
+            	<div class="deanwil">
+                	<!--{if $_G['setting']['site_qq']}--><a href="http://wpa.qq.com/msgrd?V=3&Uin=$_G['setting']['site_qq']&Site=$_G['setting']['bbname']&Menu=yes&from=discuz" target="_blank" title="QQ"><img src="{IMGDIR}/site_qq.jpg" alt="QQ" /></a><span class="pipe">|</span><!--{/if}-->
+				<!--{loop $_G['setting']['footernavs'] $nav}--><!--{if $nav['available'] && ($nav['type'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1)) ||
+						!$nav['type'] && ($nav['id'] == 'stat' && $_G['group']['allowstatdata'] || $nav['id'] == 'report' && $_G['uid'] || $nav['id'] == 'archiver' || $nav['id'] == 'mobile' || $nav['id'] == 'darkroom'))}-->$nav[code]<span class="pipe">|</span><!--{/if}--><!--{/loop}-->
+						<a href="$_G['setting']['siteurl']" target="_blank">$_G['setting']['sitename']</a>
+				<!--{if $_G['setting']['icp']}-->( <a href="http://www.miitbeian.gov.cn/" target="_blank">$_G['setting']['icp']</a> )<!--{/if}-->
+				<!--{hook/global_footerlink}-->
+				<!--{if $_G['setting']['statcode']}-->$_G['setting']['statcode']<!--{/if}-->
+                </div>
+                <div class="deanwir">
+                	Powered by <a href="http://www.discuz.net" target="_blank">Discuz!</a> <em>$_G['setting']['version']</em><!--{if !empty($_G['setting']['boardlicensed'])}--> <a href="http://license.comsenz.com/?pid=1&host=$_SERVER[HTTP_HOST]" target="_blank">Licensed</a><!--{/if}-->&copy; 2001-2013 <a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a>网站备案/许可证编号:沪ICP备12004513号; L-SH-CJ00061
+			
+                </div>
+                
+                <div class="deanwebinfoc">新ICP备13003249号 增值电信业务经营性许可证编号：新B2-20140005 旅行社业务许可证 L-XB00109     欧洲车导网旅游网络科技（北京）有限公司</div>
+            </div>
+        </div>
+    	
+    </div>
+    
+    
+	<div id="ft" style="margin:0;padding:0; height:0;">
+		
+		
+		<!--{eval updatesession();}-->
+		<!--{if $_G['uid'] && $_G['group']['allowinvisible']}-->
+			<script type="text/javascript">
+			var invisiblestatus = '<!--{if $_G['session']['invisible']}-->{lang login_invisible_mode}<!--{else}-->{lang login_normal_mode}<!--{/if}-->';
+			var loginstatusobj = $('loginstatusid');
+			if(loginstatusobj != undefined && loginstatusobj != null) loginstatusobj.innerHTML = invisiblestatus;
+			</script>
+		<!--{/if}-->
+	</div>
+<!--{/if}-->
+
+<!--{if !$_G['setting']['bbclosed']}-->
+	<!--{if $_G[uid] && !isset($_G['cookie']['checkpm'])}-->
+	<script type="text/javascript" src="home.php?mod=spacecp&ac=pm&op=checknewpm&rand=$_G[timestamp]"></script>
+	<!--{/if}-->
+
+	<!--{if $_G[uid] && helper_access::check_module('follow') && !isset($_G['cookie']['checkfollow'])}-->
+	<script type="text/javascript" src="home.php?mod=spacecp&ac=follow&op=checkfeed&rand=$_G[timestamp]"></script>
+	<!--{/if}-->
+
+	<!--{if !isset($_G['cookie']['sendmail'])}-->
+	<script type="text/javascript" src="home.php?mod=misc&ac=sendmail&rand=$_G[timestamp]"></script>
+	<!--{/if}-->
+
+	<!--{if $_G[uid] && $_G['member']['allowadmincp'] == 1 && !isset($_G['cookie']['checkpatch'])}-->
+	<script type="text/javascript" src="misc.php?mod=patch&action=checkpatch&rand=$_G[timestamp]"></script>
+	<!--{/if}-->
+
+<!--{/if}-->
+
+<!--{if $_GET['diy'] == 'yes'}-->
+	<!--{if check_diy_perm($topic) && (empty($do) || $do != 'index')}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}common_diy.js?{VERHASH}"></script>
+		<script type="text/javascript" src="{$_G[setting][jspath]}portal_diy{if !check_diy_perm($topic, 'layout')}_data{/if}.js?{VERHASH}"></script>
+	<!--{/if}-->
+	<!--{if $space['self'] && CURMODULE == 'space' && $do == 'index'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}common_diy.js?{VERHASH}"></script>
+		<script type="text/javascript" src="{$_G[setting][jspath]}space_diy.js?{VERHASH}"></script>
+	<!--{/if}-->
+<!--{/if}-->
+<!--{if $_G['uid'] && $_G['member']['allowadmincp'] == 1 && $_G['setting']['showpatchnotice'] == 1}-->
+	<script type="text/javascript">patchNotice();</script>
+<!--{/if}-->
+<!--{if $_G['uid'] && $_G['member']['allowadmincp'] == 1 && empty($_G['cookie']['pluginnotice'])}-->
+	<div class="focus plugin" id="plugin_notice"></div>
+	<script type="text/javascript">pluginNotice();</script>
+<!--{/if}-->
+<!--{if !$_G['setting']['bbclosed'] && $_G['setting']['disableipnotice'] != 1 && $_G['uid'] && !empty($_G['cookie']['lip'])}-->
+	<div class="focus plugin" id="ip_notice"></div>
+	<script type="text/javascript">ipNotice();</script>
+<!--{/if}-->
+<!--{if $_G['member']['newprompt'] && (empty($_G['cookie']['promptstate_'.$_G[uid]]) || $_G['cookie']['promptstate_'.$_G[uid]] != $_G['member']['newprompt']) && $_GET['do'] != 'notice'}-->
+	<script type="text/javascript">noticeTitle();</script>
+<!--{/if}-->
+
+<!--{if ($_G[member][newpm] || $_G[member][newprompt]) && empty($_G['cookie']['ignore_notice'])}-->
+	<script type="text/javascript" src="{$_G[setting][jspath]}html5notification.js?{VERHASH}"></script>
+	<script type="text/javascript">
+	var h5n = new Html5notification();
+	if(h5n.issupport()) {
+		<!--{if $_G[member][newpm] && $_GET[do] != 'pm'}-->
+		h5n.shownotification('pm', '$_G[siteurl]home.php?mod=space&do=pm', '<!--{avatar($_G[uid],small,true)}-->', '{lang newpm_subject}', '{lang newpm_notice_info}');
+		<!--{/if}-->
+		<!--{if $_G[member][newprompt] && $_GET[do] != 'notice'}-->
+				<!--{loop $_G['member']['category_num'] $key $val}-->
+					<!--{eval $noticetitle = lang('template', 'notice_'.$key);}-->
+					h5n.shownotification('notice_$key', '$_G[siteurl]home.php?mod=space&do=notice&view=$key', '<!--{avatar($_G[uid],small,true)}-->', '$noticetitle ($val)', '{lang newnotice_notice_info}');
+				<!--{/loop}-->
+		<!--{/if}-->
+	}
+	</script>
+<!--{/if}-->
+
+<!--{eval userappprompt();}-->
+<!--{if $_G['basescript'] != 'userapp'}-->
+<div id="scrolltop">
+	<!--{if $_G[fid] && $_G['mod'] == 'viewthread'}-->
+	<!--{/if}-->
+	<span hidefocus="true"><a title="{lang scrolltop}" onclick="window.scrollTo('0','0')" class="scrolltopa" ><b>{lang scrolltop}</b></a></span>
+	<!--{if $_G[fid]}-->
+	<span>
+		<!--{if $_G['mod'] == 'viewthread'}-->
+		<a href="forum.php?mod=forumdisplay&fid=$_G[fid]" hidefocus="true" class="returnlist" title="{lang return_list}"><b>{lang return_list}</b></a>
+		<!--{else}-->
+		<a href="forum.php" hidefocus="true" class="returnboard" title="{lang return_forum}"><b>{lang return_forum}</b></a>
+		<!--{/if}-->
+	</span>
+	<!--{/if}-->
+</div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script>
+<!--{/if}-->
+<!--{if isset($_G['makehtml'])}-->
+	<script type="text/javascript" src="{$_G[setting][jspath]}html2dynamic.js?{VERHASH}"></script>
+	<script type="text/javascript">
+		var html_lostmodify = {TIMESTAMP};
+		htmlGetUserStatus();
+		<!--{if isset($_G['htmlcheckupdate'])}-->
+		htmlCheckUpdate();
+		<!--{/if}-->
+	</script>
+<!--{/if}-->
+<!--{eval output();}-->
+</body>
+</html>
