@@ -604,15 +604,5 @@
 	<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
 </div>
 <!--{if empty($_G['setting']['disfixednv_forumdisplay']) }--><script>fixed_top_nv();</script><!--{/if}-->
-<script type="text/javascript">
-jQuery(function() { 
-    var elm = jQuery('.deanbkjs'); 
-    var startPos = jQuery(elm).offset().top; 
-    jQuery.event.add(window, "scroll", function() { 
-        var p = jQuery(window).scrollTop(); 
-        jQuery(elm).css('position',((p) > startPos) ? 'fixed' : 'static'); 
-        jQuery(elm).css('top',((p) > startPos) ? '100px' : ''); 
-    }); 
-}); 
-</script>
+
 <!--{template common/footer}-->
