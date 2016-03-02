@@ -239,6 +239,12 @@ background-color: $_G['style']['allcol'];
     _MEIQIA('entId', 7049);
     
     _MEIQIA._HIDEPANEL();
+    
+    function handleAllSet() {
+        _MEIQIA._SENDMETADATA({
+            name: '论坛访客'
+        });
+    }
 </script>
 
 </head>
