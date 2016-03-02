@@ -30,6 +30,29 @@
 
 <script src="$_G['style'][styleimgdir]/js/common.js?{VERHASH}" charset="{CHARSET}"></script>
 
+<script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+        m[a] = m[a] || function() {
+            (m[a].a = m[a].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = i + '?v=' + new Date().getUTCDate();
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '//eco-api.meiqia.com/dist/meiqia.js', '_MEIQIA');
+    _MEIQIA('entId', 7049);
+    
+    _MEIQIA._HIDEPANEL();
+    
+    function handleAllSet() {
+        _MEIQIA._SENDMETADATA({
+            name: '论坛访客'
+        });
+    }
+</script>
+
 <style>
 
 .header, .header .nav {
@@ -224,28 +247,7 @@ background-color: $_G['style']['allcol'];
 
 <!--{/if}-->
 
-<script type='text/javascript'>
-    (function(m, ei, q, i, a, j, s) {
-        m[a] = m[a] || function() {
-            (m[a].a = m[a].a || []).push(arguments)
-        };
-        j = ei.createElement(q),
-            s = ei.getElementsByTagName(q)[0];
-        j.async = true;
-        j.charset = 'UTF-8';
-        j.src = i + '?v=' + new Date().getUTCDate();
-        s.parentNode.insertBefore(j, s);
-    })(window, document, 'script', '//eco-api.meiqia.com/dist/meiqia.js', '_MEIQIA');
-    _MEIQIA('entId', 7049);
-    
-    _MEIQIA._HIDEPANEL();
-    
-    function handleAllSet() {
-        _MEIQIA._SENDMETADATA({
-            name: '论坛访客'
-        });
-    }
-</script>
+
 
 </head>
 
